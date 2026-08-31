@@ -113,6 +113,7 @@ async function setupDaemon () {
     if (ipfsd) await stopIpfs()
   })
 
+  await getCtx().getProp('i18n.initDone')
   await startIpfs()
 
   ipcMain.on(ipcMainEvents.ONLINE_STATUS_CHANGED, (_, isOnline) => {
